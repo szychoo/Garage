@@ -23,6 +23,5 @@ namespace Garage.ViewModels
         public Car Car { get; set; }
         //public IEnumerable<CarModel> CarModels { get; set; }
         public SelectList Makes { get; set; }
-        //public Make SelectedMake { get; set; }
     }
 }
