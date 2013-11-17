@@ -1,0 +1,42 @@
+﻿@model Garage.ViewModels.CreateCarViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CreateCarViewModel</legend>
+
+        <table>
+            <tr>
+                @{Html.ValidateFor(model => model.Car.Colour);}
+                <td>@Html.LabelFor(model=>model.Car.Colour)</td>
+                <td>@Html.EditorFor(model=>model.Car.Colour)</td>
+            </tr>
+            <tr>
+                <td>Make</td>
+                @*<td>@Html.DropDownListFor(model => model.SelectedMake.MakeID, Model.Makes)</td>*@
+                <td>@Html.DropDownListFor(model=>model.Car.MakeID, Model.Makes)</td>
+            </tr>
+            
+        </table>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
